@@ -5,11 +5,22 @@ HOST: http://polls.apiblueprint.org/
 
 Teambition API 文档
 
-## 群组 [/api/groups]
+# Data Structures
 
-### 创建群组 [POST]
+## ObjectID (string)
 
-+ Request (application/json)
+## Group 群组
+
+### 创建群组 [POST /api/groups]
+
+新建群组，必须为组织成员
+
++ Attributes
+    + _organizationId (ObjectID, required) - 组织 id
+    + name (string, required) - 群组名称
+    + userIds (array[ObjectID], required) - 群组成员 id，必须为组织成员，可为空
+
++ Request
 
         {
             "name": "X",
@@ -19,7 +30,7 @@ Teambition API 文档
             "_organizationId": "582ac0358a40417b939859e4"
         }
 
-+ Response 200 (application/json)
++ Response 200
 
         {
             "_id": "582acba5d530e4bc956b5054",
@@ -50,9 +61,38 @@ Teambition API 文档
             "py": "x"
         }
 
-### 读取群组列表 [GET]
+### 更新群组 [PUT /api/groups/{_groupId}]
 
-+ Response 200 (application/json)
+必须为群组创建者或者组织管理员
+
++ Parameters
+    + _groupId (ObjectId) - 群组 id
+
++ Attributes
+    + name (string) - 群组名称
+
++ Request
+
+        {
+            "name": "Y"
+        }
+
++ Response 200
+
+        {
+            "name": "Y",
+            "updated": "2016-11-15T08:45:40.977Z",
+            "_id": "582acb3487e24e9c95d72e80",
+            "pinyin": "y",
+            "py": "y"
+        }
+
+### 读取群组列表 [GET /api/organizations/{_organizationId}/groups]
+
++ Parameters
+    + _organizationId (ObjectId) - 组织 id
+
++ Response 200
 
         [
             {
@@ -82,3 +122,23 @@ Teambition API 文档
                 "updated": "2016-11-15T08:21:20.527Z"
             }
         ]
+
+### 删除群组 [DELETE /groups/{_groupId}]
+
+必须为群组创建者或组织管理员
+
++ Parameters
+    + _groupId (ObjectID) - 群组 id
+
++ Response 200
+
+        {
+            "_id": "582bd6b4adb18314b6fcff9e",
+            "name": "Y",
+            "_creatorId": "5109f1e918e6fcfc560001a6",
+            "_organizationId": "582bd6b4adb18314b6fcff7b",
+            "updated": "2016-11-16T03:47:01.149Z",
+            "created": "2016-11-16T03:47:00.796Z",
+            "py": "y",
+            "pinyin": "y"
+        }
