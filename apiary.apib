@@ -49,3 +49,36 @@ Teambition API 文档
             "pinyin": "x",
             "py": "x"
         }
+
+### 读取群组列表 [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "_id": "582ac5809ea2909094b38815",
+                "name": "X",
+                "_organizationId": "582ac57f9ea2909094b387f4",
+                "_creatorId": "5109f1e918e6fcfc560001a6",
+                "hasMembers": [
+                {
+                    "_id": "582ac5809ea2909094b387f8",
+                    "avatarUrl": "",
+                    "name": "name2",
+                    "pinyin": "name2",
+                    "py": "name2",
+                    "isDefaultEmail": false
+                },
+                {
+                    "_id": "5109f1e918e6fcfc560001a6",
+                    "avatarUrl": "http://www.teambition.com/site_media/user_avatars/20120928112820_349.png",
+                    "name": "测试账号",
+                    "pinyin": "ce shi zhang hao",
+                    "py": "cszh",
+                    "isDefaultEmail": false
+                }
+                ],
+                "created": "2016-11-15T08:21:20.527Z",
+                "updated": "2016-11-15T08:21:20.527Z"
+            }
+        ]
