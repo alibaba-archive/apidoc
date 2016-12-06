@@ -3,78 +3,49 @@ HOST: http://polls.apiblueprint.org/
 
 # TeambitionAPI
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Teambition API 文档
 
-## Questions Collection [/questions]
+## 群组
 
-### List All Questions [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+### 创建群组 [POST]
 
 + Request (application/json)
 
+    {
+        "name": "X",
+        "userIds": [
+            "582ac0358a40417b939859e8"
+        ],
+        "_organizationId": "582ac0358a40417b939859e4"
+    }
+
++ Response 200 (application/json)
+
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "_id": "582acba5d530e4bc956b5054",
+            "name": "X",
+            "_organizationId": "582acba5d530e4bc956b5033",
+            "_creatorId": "5109f1e918e6fcfc560001a6",
+            "hasMembers": [
+                {
+                "_id": "582acba5d530e4bc956b5037",
+                "avatarUrl": "",
+                "name": "name2",
+                "pinyin": "name2",
+                "py": "name2",
+                "isDefaultEmail": false
+                },
+                {
+                "_id": "5109f1e918e6fcfc560001a6",
+                "avatarUrl": "http://www.teambition.com/site_media/user_avatars/20120928112820_349.png",
+                "name": "测试账号",
+                "pinyin": "ce shi zhang hao",
+                "py": "cszh",
+                "isDefaultEmail": false
+                }
+            ],
+            "created": "2016-11-15T08:47:33.567Z",
+            "updated": "2016-11-15T08:47:33.567Z",
+            "pinyin": "x",
+            "py": "x"
         }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
