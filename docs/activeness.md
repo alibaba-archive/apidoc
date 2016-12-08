@@ -4,7 +4,7 @@
 
 查看者必须与目标用户在同一个组织，仅能查看组织可见项目和已参与的项目，并且不能看到未参与的仅参与者可见对象
 
-### 读取成员动态 [GET /organizations/{_organizationId}/activeness/{_userId}/weekly{?startDate,limit}]
+### 读取成员动态 [GET /api/organizations/{_organizationId}/activeness/{_userId}/weekly{?startDate,limit}]
 
 + Parameters
     + _organizationId (ObjectID, required) - 组织 id
@@ -12,7 +12,7 @@
     + startDate (date, required) - 本周开始时间
     + limit (number, optional) - 返回数量，最多 5 个
 
-+ Response 200
++ Response 200 (application/json)
 
         [{
           "_id": "5847d23cf197c9132831cb17",

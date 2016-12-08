@@ -9,7 +9,7 @@
     + name (string, required) - 群组名称
     + userIds (array[ObjectID], required) - 群组成员 id，必须为组织成员，可为空
 
-+ Request
++ Request (application/json)
 
         {
             "name": "X",
@@ -19,7 +19,7 @@
             "_organizationId": "582ac0358a40417b939859e4"
         }
 
-+ Response 200
++ Response 200 (application/json)
 
         {
             "_id": "582acba5d530e4bc956b5054",
@@ -60,13 +60,13 @@
 + Attributes
     + name (string) - 群组名称
 
-+ Request
++ Request (application/json)
 
         {
             "name": "Y"
         }
 
-+ Response 200
++ Response 200 (application/json)
 
         {
             "name": "Y",
@@ -81,7 +81,7 @@
 + Parameters
     + _organizationId (ObjectId) - 组织 id
 
-+ Response 200
++ Response 200 (application/json)
 
         [
             {
@@ -119,7 +119,7 @@
 + Parameters
     + _groupId (ObjectID) - 群组 id
 
-+ Response 200
++ Response 200 (application/json)
 
         {
             "_id": "582bd6b4adb18314b6fcff9e",
